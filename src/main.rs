@@ -83,35 +83,41 @@ impl UserData {
         }
         squared
     }
+
+    fn population_deviation(&self) -> f32 {
+        let population = self.sum_squared() / self.len();
+        population.powf(0.5)
+    }
+
+    fn sample_deviation(&self) -> f32 {
+        let sample = self.sum_squared() / (self.len() - 1.0);
+        sample.powf(0.5)
+    }
 }
 
 fn main() {
+    use Number::*;
     // Standard Deviation, σ: 874.32854145338
     // Standard Deviation, s: 921.62320476188
      
     let user_data: UserData = UserData { 
         data: vec![
-            Number::Int(1), 
-            Number::Float(5.3), 
-            Number::Int(200), 
-            Number::Float(-533.6), 
-            Number::Int(1000), 
-            Number::Float(2000.9),
-            Number::Int(-1500), 
-            Number::Float(-2.5), 
-            Number::Int(-50),
-            Number::Float(-350.7)
+           Int(1), 
+           Float(5.3), 
+           Int(200), 
+           Float(-533.6), 
+           Int(1000), 
+           Float(2000.9),
+           Int(-1500), 
+           Float(-2.5), 
+           Int(-50),
+           Float(-350.7)
         ]
     };
     
-    let len = user_data.len(); 
-    let sum_sqrt = user_data.sum_squared();
-    let population = sum_sqrt / len;
-    let sample = sum_sqrt / (len - 1.0);
-
     println!(
         "Population Deviation {:?}\nSample Deviation {:?}",
-        population.powf(0.5),
-        sample.powf(0.5),
+        user_data.population_deviation(),
+        user_data.sample_deviation(),
     );
 }
