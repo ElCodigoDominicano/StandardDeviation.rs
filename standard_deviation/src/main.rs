@@ -21,6 +21,11 @@
     Formula Population: 𝝈=√ ∑(xi-𝜇)^2
                             ----------
                                 N
+                            ____________
+    Formula Population: s=√ ∑(xi-overlinex)^2
+                            ----------
+                              N - 1
+                
                 
     In the formula above...
     𝝈 - is the standard deviation
