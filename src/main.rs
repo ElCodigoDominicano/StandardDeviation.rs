@@ -36,9 +36,5 @@
 use standard_deviation::user_input;
 
 fn main() {
-    // Standard Deviation, σ: 874.32854145338
-    // Standard Deviation, s: 921.62320476188
-    //
    user_input() 
-     
 }
